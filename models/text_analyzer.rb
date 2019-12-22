@@ -1,24 +1,24 @@
-# Your TextAnalyzer model code will go here.
 class TextAnalyzer
-  attr_reader :text
- 
+
+  attr_accessor :text
+
   def initialize(text)
-    @text = text.downcase
+    @text = text
   end
- 
+
   def count_of_words
-    words = text.split(" ")
+    words = @text.split(" ")
     words.count
   end
- 
+
   def count_of_vowels
-    text.scan(/[aeoui]/).count
+    @text.scan(/[aeoui]/).count
   end
- 
+
   def count_of_consonants
-    text.scan(/[bcdfghjklmnpqrstvwxyz]/).count
+    @text.scan(/[bcdfghjklmnpqrstvwxyz]/).count
   end
- 
+
   def most_used_letter
     s1 = @text.downcase.gsub(/[^a-z]/, '') #gets rid of spaces
     arr = s1.split('')
@@ -43,4 +43,5 @@ class TextAnalyzer
     end
     biggest
   end
+
 end
